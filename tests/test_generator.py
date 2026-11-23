@@ -20,3 +20,10 @@ def test_aes_wrong_bits():
 def test_rsa():
     key = KeyGenerator().generate_rsa("r1", 2048)
     assert key.value.startswith(b"-----BEGIN PRIVATE KEY-----")
+
+
+def test_fingerprint():
+    key = KeyGenerator().generate_aes("k1")
+    fp = key.fingerprint()
+    assert len(fp) == 16 and fp == key.fingerprint()
+    assert key.value.hex() not in fp
