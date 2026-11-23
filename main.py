@@ -25,8 +25,8 @@ def main():
             except st.StorageError as exc:
                 print(exc)
         storage.save()
-        for name, algorithm, created in storage.list_keys():
-            print(f"{name:10} {algorithm:9} {created}")
+        for name, algorithm, created, fp in storage.list_keys():
+            print(f"{name:10} {algorithm:9} {created}  {fp}")
     except (ValueError, st.StorageError) as exc:
         print(f"Ошибка: {exc}")
     finally:
