@@ -2,6 +2,8 @@
 import re
 
 NAME_PATTERN = re.compile(r"[A-Za-z0-9_-]{1,32}")
+# простой шаблон без вложенных повторений - не подвержен ReDoS
+FILE_PATTERN = re.compile(r"[A-Za-z0-9_-]{1,50}\.(pem|key)")
 
 
 def validate_name(name):
@@ -47,3 +49,21 @@ def validate_password(password):
     if not isinstance(password, str) or len(password) < 8:
         raise ValueError("Пароль должен быть не короче 8 символов")
     return password
+
+
+def validate_filename(filename):
+    """Проверяет имя файла для экспорта/импорта.
+
+    Разрешено только имя файла без каталогов, с расширением
+    .pem или .key, что исключает запись за пределы папки экспорта.
+
+    :param filename: Имя файла, например "db_key.pem".
+    :return: Проверенное имя.
+    :raises TypeError: Если имя не строка.
+    :raises ValueError: Если имя недопустимо.
+    """
+    if not isinstance(filename, str):
+        raise TypeError("Имя файла должно быть строкой")
+    if not FILE_PATTERN.fullmatch(filename):
+        raise ValueError("Недопустимое имя файла")
+    return filename

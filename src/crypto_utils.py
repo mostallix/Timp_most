@@ -54,10 +54,10 @@ def decrypt(blob, password):
         raise DecryptionError("Данные повреждены")
     salt = blob[:SALT_SIZE]
     nonce = blob[SALT_SIZE:SALT_SIZE + NONCE_SIZE]
+    ciphertext = blob[SALT_SIZE + NONCE_SIZE:]
     key = derive_key(password, salt)
     try:
-        return AESGCM(key).decrypt(nonce, blob[SALT_SIZE + NONCE_SIZE:],
-                                   None)
+        return AESGCM(key).decrypt(nonce, ciphertext, None)
     except InvalidTag:
-        raise DecryptionError("Неверный пароль или данные повреждены") \
-            from None
+        raise DecryptionError(
+            "Неверный пароль или данные повреждены") from None
