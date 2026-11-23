@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.pytest_cache/
+.coverage
+*.dat
+*.tmp
+keymanager.log
+exports/
+build/
+dist/
+*.egg-info/

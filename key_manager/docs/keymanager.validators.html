@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module keymanager.validators</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="keymanager.html" class="white">keymanager</a>.validators</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="../keymanager/validators.py">keymanager/validators.py</a></td></tr></table>
+    <p><span class="code">Проверка&nbsp;входных&nbsp;данных&nbsp;(используется&nbsp;всеми&nbsp;модулями).</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="re.html">re</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-validate_bits"><strong>validate_bits</strong></a>(bits, allowed)</dt><dd><span class="code">Проверяет&nbsp;длину&nbsp;ключа.<br>
+&nbsp;<br>
+:param&nbsp;bits:&nbsp;Длина&nbsp;ключа&nbsp;в&nbsp;битах.<br>
+:param&nbsp;allowed:&nbsp;Допустимые&nbsp;значения.<br>
+:return:&nbsp;Проверенная&nbsp;длина.<br>
+:raises&nbsp;TypeError:&nbsp;Если&nbsp;длина&nbsp;не&nbsp;целое&nbsp;число.<br>
+:raises&nbsp;ValueError:&nbsp;Если&nbsp;длина&nbsp;не&nbsp;входит&nbsp;в&nbsp;allowed.</span></dd></dl>
+ <dl><dt><a name="-validate_filename"><strong>validate_filename</strong></a>(filename)</dt><dd><span class="code">Проверяет&nbsp;имя&nbsp;файла&nbsp;для&nbsp;экспорта/импорта.<br>
+&nbsp;<br>
+Разрешено&nbsp;только&nbsp;имя&nbsp;файла&nbsp;без&nbsp;каталогов,&nbsp;с&nbsp;расширением<br>
+.pem&nbsp;или&nbsp;.key,&nbsp;что&nbsp;исключает&nbsp;запись&nbsp;за&nbsp;пределы&nbsp;папки&nbsp;экспорта.<br>
+&nbsp;<br>
+:param&nbsp;filename:&nbsp;Имя&nbsp;файла,&nbsp;например&nbsp;"db_key.pem".<br>
+:return:&nbsp;Проверенное&nbsp;имя.<br>
+:raises&nbsp;TypeError:&nbsp;Если&nbsp;имя&nbsp;не&nbsp;строка.<br>
+:raises&nbsp;ValueError:&nbsp;Если&nbsp;имя&nbsp;недопустимо.</span></dd></dl>
+ <dl><dt><a name="-validate_name"><strong>validate_name</strong></a>(name)</dt><dd><span class="code">Проверяет&nbsp;имя&nbsp;ключа.<br>
+&nbsp;<br>
+:param&nbsp;name:&nbsp;Имя&nbsp;ключа&nbsp;(латиница,&nbsp;цифры,&nbsp;_&nbsp;и&nbsp;-,&nbsp;до&nbsp;32&nbsp;символов).<br>
+:return:&nbsp;Проверенное&nbsp;имя.<br>
+:raises&nbsp;TypeError:&nbsp;Если&nbsp;имя&nbsp;не&nbsp;строка.<br>
+:raises&nbsp;ValueError:&nbsp;Если&nbsp;имя&nbsp;пустое&nbsp;или&nbsp;содержит<br>
+&nbsp;&nbsp;&nbsp;&nbsp;недопустимые&nbsp;символы.</span></dd></dl>
+ <dl><dt><a name="-validate_password"><strong>validate_password</strong></a>(password)</dt><dd><span class="code">Проверяет&nbsp;мастер-пароль.<br>
+&nbsp;<br>
+:param&nbsp;password:&nbsp;Мастер-пароль.<br>
+:return:&nbsp;Проверенный&nbsp;пароль.<br>
+:raises&nbsp;ValueError:&nbsp;Если&nbsp;пароль&nbsp;короче&nbsp;8&nbsp;символов.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>FILE_PATTERN</strong> = re.compile('[A-Za-z0-9_-]{1,50}\\.(pem|key)')<br>
+<strong>NAME_PATTERN</strong> = re.compile('[A-Za-z0-9_-]{1,32}')</td></tr></table>
+</body></html>

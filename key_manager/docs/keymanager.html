@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: package keymanager</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">keymanager</strong> (version 1.0.0)</td>
+<td class="extra"><a href=".">index</a><br><a href="../keymanager/__init__.py">keymanager/__init__.py</a></td></tr></table>
+    <p><span class="code">Пакет&nbsp;«Генератор&nbsp;и&nbsp;менеджер&nbsp;ключей&nbsp;шифрования».<br>
+&nbsp;<br>
+Создание&nbsp;ключей&nbsp;AES&nbsp;и&nbsp;RSA,&nbsp;хранение&nbsp;в&nbsp;зашифрованном&nbsp;файле,<br>
+экспорт&nbsp;и&nbsp;импорт&nbsp;ключей,&nbsp;консольный&nbsp;интерфейс.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Package Contents</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="keymanager.cli.html">cli</a><br>
+<a href="keymanager.crypto_utils.html">crypto_utils</a><br>
+</td><td class="multicolumn"><a href="keymanager.exporter.html">exporter</a><br>
+<a href="keymanager.generator.html">generator</a><br>
+</td><td class="multicolumn"><a href="keymanager.key.html">key</a><br>
+<a href="keymanager.storage.html">storage</a><br>
+</td><td class="multicolumn"><a href="keymanager.ui.html">ui</a><br>
+<a href="keymanager.validators.html">validators</a><br>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#Exception">builtins.Exception</a>(<a href="builtins.html#BaseException">builtins.BaseException</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="keymanager.exporter.html#ExportError">keymanager.exporter.ExportError</a>
+</dt><dt class="heading-text"><a href="keymanager.storage.html#StorageError">keymanager.storage.StorageError</a>
+</dt></dl>
+</dd>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="keymanager.exporter.html#KeyExporter">keymanager.exporter.KeyExporter</a>
+</dt><dt class="heading-text"><a href="keymanager.generator.html#KeyGenerator">keymanager.generator.KeyGenerator</a>
+</dt><dt class="heading-text"><a href="keymanager.key.html#Key">keymanager.key.Key</a>
+</dt><dt class="heading-text"><a href="keymanager.storage.html#KeyStorage">keymanager.storage.KeyStorage</a>
+</dt><dt class="heading-text"><a href="keymanager.ui.html#ConsoleUI">keymanager.ui.ConsoleUI</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="ConsoleUI">class <strong>ConsoleUI</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#ConsoleUI">ConsoleUI</a>(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;generator,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;storage,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;exporter,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;input_func=&amp;lt;built-in&nbsp;function&nbsp;input&amp;gt;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;password_func=&amp;lt;function&nbsp;unix_getpass&nbsp;at&nbsp;0x7f9244143420&amp;gt;<br>
+)<br>
+&nbsp;<br>
+Текстовое&nbsp;меню&nbsp;для&nbsp;работы&nbsp;с&nbsp;ключами.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="ConsoleUI-__init__"><strong>__init__</strong></a>(
+    self,
+    generator,
+    storage,
+    exporter,
+    input_func=&lt;built-in function input&gt;,
+    password_func=&lt;function unix_getpass at 0x7f9244143420&gt;
+)</dt><dd><span class="code">Создаёт&nbsp;интерфейс.<br>
+&nbsp;<br>
+:param&nbsp;generator:&nbsp;Объект&nbsp;<a href="#KeyGenerator">KeyGenerator</a>.<br>
+:param&nbsp;storage:&nbsp;Объект&nbsp;<a href="#KeyStorage">KeyStorage</a>.<br>
+:param&nbsp;exporter:&nbsp;Объект&nbsp;<a href="#KeyExporter">KeyExporter</a>.<br>
+:param&nbsp;input_func:&nbsp;Функция&nbsp;ввода&nbsp;строки.<br>
+:param&nbsp;password_func:&nbsp;Функция&nbsp;скрытого&nbsp;ввода&nbsp;пароля.</span></dd></dl>
+
+<dl><dt><a name="ConsoleUI-run"><strong>run</strong></a>(self)</dt><dd><span class="code">Запускает&nbsp;программу:&nbsp;вход,&nbsp;затем&nbsp;главное&nbsp;меню.<br>
+&nbsp;<br>
+:return:&nbsp;0&nbsp;при&nbsp;нормальном&nbsp;завершении,&nbsp;1&nbsp;если&nbsp;вход&nbsp;не&nbsp;выполнен.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="ExportError">class <strong>ExportError</strong></a>(<a href="builtins.html#Exception">builtins.Exception</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Ошибка&nbsp;экспорта&nbsp;или&nbsp;импорта&nbsp;(безопасна&nbsp;для&nbsp;показа).<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="keymanager.exporter.html#ExportError">ExportError</a></dd>
+<dd><a href="builtins.html#Exception">builtins.Exception</a></dd>
+<dd><a href="builtins.html#BaseException">builtins.BaseException</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Methods inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><a name="ExportError-__init__"><strong>__init__</strong></a>(self, /, *args, **kwargs)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<hr>
+Static methods inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><a name="ExportError-__new__"><strong>__new__</strong></a>(*args, **kwargs)<span class="grey"><span class="heading-text"> class method of <a href="builtins.html#Exception">builtins.Exception</a></span></span></dt><dd><span class="code">Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;<a href="builtins.html#object">object</a>.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><a name="ExportError-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><span class="code">Return&nbsp;getattr(self,&nbsp;name).</span></dd></dl>
+
+<dl><dt><a name="ExportError-__reduce__"><strong>__reduce__</strong></a>(self, /)</dt><dd><span class="code">Helper&nbsp;for&nbsp;pickle.</span></dd></dl>
+
+<dl><dt><a name="ExportError-__repr__"><strong>__repr__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;repr(self).</span></dd></dl>
+
+<dl><dt><a name="ExportError-__setstate__"><strong>__setstate__</strong></a>(self, object, /)</dt></dl>
+
+<dl><dt><a name="ExportError-__str__"><strong>__str__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;str(self).</span></dd></dl>
+
+<dl><dt><a name="ExportError-add_note"><strong>add_note</strong></a>(self, object, /)</dt><dd><span class="code"><a href="builtins.html#Exception">Exception</a>.<a href="#ExportError-add_note">add_note</a>(note)&nbsp;--<br>
+add&nbsp;a&nbsp;note&nbsp;to&nbsp;the&nbsp;exception</span></dd></dl>
+
+<dl><dt><a name="ExportError-with_traceback"><strong>with_traceback</strong></a>(self, object, /)</dt><dd><span class="code"><a href="builtins.html#Exception">Exception</a>.<a href="#ExportError-with_traceback">with_traceback</a>(tb)&nbsp;--<br>
+set&nbsp;self.<strong>__traceback__</strong>&nbsp;to&nbsp;tb&nbsp;and&nbsp;return&nbsp;self.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><strong>__cause__</strong></dt>
+<dd><span class="code">exception&nbsp;cause</span></dd>
+</dl>
+<dl><dt><strong>__context__</strong></dt>
+<dd><span class="code">exception&nbsp;context</span></dd>
+</dl>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>__suppress_context__</strong></dt>
+</dl>
+<dl><dt><strong>__traceback__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Key">class <strong>Key</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Key">Key</a>(name:&nbsp;str,&nbsp;algorithm:&nbsp;str,&nbsp;value:&nbsp;bytes,&nbsp;created:&nbsp;str&nbsp;=&nbsp;&amp;lt;factory&amp;gt;)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Криптографический&nbsp;ключ.<br>
+&nbsp;<br>
+:param&nbsp;name:&nbsp;Имя&nbsp;ключа.<br>
+:param&nbsp;algorithm:&nbsp;Алгоритм,&nbsp;например&nbsp;"AES-256"&nbsp;или&nbsp;"RSA-2048".<br>
+:param&nbsp;value:&nbsp;Значение&nbsp;ключа&nbsp;(для&nbsp;RSA&nbsp;-&nbsp;закрытый&nbsp;PEM).<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Key-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><span class="code">Return&nbsp;self==value.</span></dd></dl>
+
+<dl><dt><a name="Key-__init__"><strong>__init__</strong></a>(
+    self,
+    name: str,
+    algorithm: str,
+    value: bytes,
+    created: str = &lt;factory&gt;
+) -&gt; None</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="Key-__replace__"><strong>__replace__</strong></a> = _replace(self, /, **changes)<span class="grey"><span class="heading-text"> from <a href="dataclasses.html">dataclasses</a></span></span></dt></dl>
+
+<dl><dt><a name="Key-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><span class="code">Return&nbsp;repr(self).</span></dd></dl>
+
+<dl><dt><a name="Key-fingerprint"><strong>fingerprint</strong></a>(self)</dt><dd><span class="code">Возвращает&nbsp;отпечаток&nbsp;ключа&nbsp;(первые&nbsp;16&nbsp;символов&nbsp;SHA-256).<br>
+&nbsp;<br>
+Отпечаток&nbsp;позволяет&nbsp;отличать&nbsp;ключи&nbsp;друг&nbsp;от&nbsp;друга,<br>
+не&nbsp;показывая&nbsp;их&nbsp;значения.<br>
+&nbsp;<br>
+:return:&nbsp;Строка&nbsp;из&nbsp;16&nbsp;шестнадцатеричных&nbsp;символов.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__annotations__</strong> = {'algorithm': &lt;class 'str'&gt;, 'created': &lt;class 'str'&gt;, 'name': &lt;class 'str'&gt;, 'value': &lt;class 'bytes'&gt;}</dl>
+
+<dl><dt><strong>__dataclass_fields__</strong> = {'algorithm': Field(name='algorithm',type=&lt;class 'str'&gt;,defaul...appingproxy({}),kw_only=False,_field_type=_FIELD), 'created': Field(name='created',type=&lt;class 'str'&gt;,default=...appingproxy({}),kw_only=False,_field_type=_FIELD), 'name': Field(name='name',type=&lt;class 'str'&gt;,default=&lt;da...appingproxy({}),kw_only=False,_field_type=_FIELD), 'value': Field(name='value',type=&lt;class 'bytes'&gt;,default=...appingproxy({}),kw_only=False,_field_type=_FIELD)}</dl>
+
+<dl><dt><strong>__dataclass_params__</strong> = _DataclassParams(init=True,repr=True,eq=True,ord...rue,kw_only=False,slots=False,weakref_slot=False)</dl>
+
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+<dl><dt><strong>__match_args__</strong> = ('name', 'algorithm', 'value', 'created')</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="KeyExporter">class <strong>KeyExporter</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#KeyExporter">KeyExporter</a>(export_dir)<br>
+&nbsp;<br>
+Перенос&nbsp;ключей&nbsp;между&nbsp;хранилищем&nbsp;и&nbsp;файлами.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="KeyExporter-__init__"><strong>__init__</strong></a>(self, export_dir)</dt><dd><span class="code">Создаёт&nbsp;экспортёр.<br>
+&nbsp;<br>
+:param&nbsp;export_dir:&nbsp;Каталог&nbsp;для&nbsp;файлов&nbsp;экспорта.</span></dd></dl>
+
+<dl><dt><a name="KeyExporter-export_public"><strong>export_public</strong></a>(self, key, filename)</dt><dd><span class="code">Сохраняет&nbsp;открытый&nbsp;ключ&nbsp;RSA&nbsp;в&nbsp;формате&nbsp;PEM.<br>
+&nbsp;<br>
+:param&nbsp;key:&nbsp;Объект&nbsp;<a href="#Key">Key</a>&nbsp;с&nbsp;ключом&nbsp;RSA.<br>
+:param&nbsp;filename:&nbsp;Имя&nbsp;файла&nbsp;(.pem&nbsp;или&nbsp;.key).<br>
+:return:&nbsp;Путь&nbsp;к&nbsp;созданному&nbsp;файлу.<br>
+:raises&nbsp;<a href="#ExportError">ExportError</a>:&nbsp;Если&nbsp;ключ&nbsp;не&nbsp;RSA&nbsp;или&nbsp;файл&nbsp;уже&nbsp;есть.</span></dd></dl>
+
+<dl><dt><a name="KeyExporter-export_secret"><strong>export_secret</strong></a>(self, key, filename, password)</dt><dd><span class="code">Сохраняет&nbsp;секретный&nbsp;ключ,&nbsp;зашифрованный&nbsp;паролем.<br>
+&nbsp;<br>
+:param&nbsp;key:&nbsp;Объект&nbsp;<a href="#Key">Key</a>&nbsp;(AES&nbsp;или&nbsp;RSA).<br>
+:param&nbsp;filename:&nbsp;Имя&nbsp;файла&nbsp;(.pem&nbsp;или&nbsp;.key).<br>
+:param&nbsp;password:&nbsp;Пароль&nbsp;для&nbsp;защиты&nbsp;файла&nbsp;(от&nbsp;8&nbsp;символов).<br>
+:return:&nbsp;Путь&nbsp;к&nbsp;созданному&nbsp;файлу.<br>
+:raises&nbsp;ValueError:&nbsp;Если&nbsp;пароль&nbsp;слишком&nbsp;короткий.<br>
+:raises&nbsp;<a href="#ExportError">ExportError</a>:&nbsp;Если&nbsp;файл&nbsp;уже&nbsp;существует.</span></dd></dl>
+
+<dl><dt><a name="KeyExporter-import_secret"><strong>import_secret</strong></a>(self, filename, name, password)</dt><dd><span class="code">Загружает&nbsp;секретный&nbsp;ключ&nbsp;из&nbsp;зашифрованного&nbsp;файла.<br>
+&nbsp;<br>
+:param&nbsp;filename:&nbsp;Имя&nbsp;файла&nbsp;в&nbsp;каталоге&nbsp;экспорта.<br>
+:param&nbsp;name:&nbsp;Имя,&nbsp;под&nbsp;которым&nbsp;ключ&nbsp;будет&nbsp;сохранён.<br>
+:param&nbsp;password:&nbsp;Пароль,&nbsp;которым&nbsp;защищён&nbsp;файл.<br>
+:return:&nbsp;Объект&nbsp;<a href="#Key">Key</a>.<br>
+:raises&nbsp;<a href="#ExportError">ExportError</a>:&nbsp;Если&nbsp;файл&nbsp;не&nbsp;найден,&nbsp;имеет&nbsp;неверный<br>
+&nbsp;&nbsp;&nbsp;&nbsp;формат&nbsp;или&nbsp;пароль&nbsp;неверный.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="KeyGenerator">class <strong>KeyGenerator</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Создание&nbsp;ключей&nbsp;AES&nbsp;и&nbsp;RSA.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="KeyGenerator-generate_aes"><strong>generate_aes</strong></a>(self, name, bits=256)</dt><dd><span class="code">Создаёт&nbsp;симметричный&nbsp;ключ&nbsp;AES.<br>
+&nbsp;<br>
+:param&nbsp;name:&nbsp;Имя&nbsp;ключа.<br>
+:param&nbsp;bits:&nbsp;Длина&nbsp;ключа:&nbsp;128&nbsp;или&nbsp;256&nbsp;бит.<br>
+:return:&nbsp;Объект&nbsp;<a href="#Key">Key</a>.<br>
+:raises&nbsp;TypeError:&nbsp;Если&nbsp;параметры&nbsp;неверного&nbsp;типа.<br>
+:raises&nbsp;ValueError:&nbsp;Если&nbsp;имя&nbsp;или&nbsp;длина&nbsp;недопустимы.</span></dd></dl>
+
+<dl><dt><a name="KeyGenerator-generate_rsa"><strong>generate_rsa</strong></a>(self, name, bits=2048)</dt><dd><span class="code">Создаёт&nbsp;закрытый&nbsp;ключ&nbsp;RSA&nbsp;(открытый&nbsp;вычисляется&nbsp;из&nbsp;него).<br>
+&nbsp;<br>
+:param&nbsp;name:&nbsp;Имя&nbsp;ключа.<br>
+:param&nbsp;bits:&nbsp;Длина&nbsp;ключа:&nbsp;2048,&nbsp;3072&nbsp;или&nbsp;4096&nbsp;бит.<br>
+:return:&nbsp;Объект&nbsp;<a href="#Key">Key</a>,&nbsp;value&nbsp;содержит&nbsp;закрытый&nbsp;ключ&nbsp;в&nbsp;PEM.<br>
+:raises&nbsp;TypeError:&nbsp;Если&nbsp;параметры&nbsp;неверного&nbsp;типа.<br>
+:raises&nbsp;ValueError:&nbsp;Если&nbsp;имя&nbsp;или&nbsp;длина&nbsp;недопустимы.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>AES_SIZES</strong> = (128, 256)</dl>
+
+<dl><dt><strong>RSA_SIZES</strong> = (2048, 3072, 4096)</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="KeyStorage">class <strong>KeyStorage</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#KeyStorage">KeyStorage</a>(filename)<br>
+&nbsp;<br>
+Хранилище&nbsp;ключей,&nbsp;защищённое&nbsp;мастер-паролем.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="KeyStorage-__init__"><strong>__init__</strong></a>(self, filename)</dt><dd><span class="code">Создаёт&nbsp;хранилище.<br>
+&nbsp;<br>
+:param&nbsp;filename:&nbsp;Путь&nbsp;к&nbsp;файлу&nbsp;хранилища.</span></dd></dl>
+
+<dl><dt><a name="KeyStorage-add_key"><strong>add_key</strong></a>(self, key)</dt><dd><span class="code">Добавляет&nbsp;ключ.<br>
+&nbsp;<br>
+:param&nbsp;key:&nbsp;Объект&nbsp;<a href="#Key">Key</a>.<br>
+:raises&nbsp;<a href="#StorageError">StorageError</a>:&nbsp;Если&nbsp;хранилище&nbsp;не&nbsp;открыто<br>
+&nbsp;&nbsp;&nbsp;&nbsp;или&nbsp;ключ&nbsp;с&nbsp;таким&nbsp;именем&nbsp;уже&nbsp;есть.</span></dd></dl>
+
+<dl><dt><a name="KeyStorage-close"><strong>close</strong></a>(self)</dt><dd><span class="code">Закрывает&nbsp;хранилище&nbsp;и&nbsp;удаляет&nbsp;ключи&nbsp;из&nbsp;памяти.</span></dd></dl>
+
+<dl><dt><a name="KeyStorage-delete_key"><strong>delete_key</strong></a>(self, name)</dt><dd><span class="code">Удаляет&nbsp;ключ&nbsp;по&nbsp;имени.<br>
+&nbsp;<br>
+:param&nbsp;name:&nbsp;Имя&nbsp;ключа.<br>
+:raises&nbsp;<a href="#StorageError">StorageError</a>:&nbsp;Если&nbsp;ключ&nbsp;не&nbsp;найден.</span></dd></dl>
+
+<dl><dt><a name="KeyStorage-get_key"><strong>get_key</strong></a>(self, name)</dt><dd><span class="code">Возвращает&nbsp;ключ&nbsp;по&nbsp;имени.<br>
+&nbsp;<br>
+:param&nbsp;name:&nbsp;Имя&nbsp;ключа.<br>
+:return:&nbsp;Объект&nbsp;<a href="#Key">Key</a>.<br>
+:raises&nbsp;<a href="#StorageError">StorageError</a>:&nbsp;Если&nbsp;ключ&nbsp;не&nbsp;найден.</span></dd></dl>
+
+<dl><dt><a name="KeyStorage-list_keys"><strong>list_keys</strong></a>(self)</dt><dd><span class="code">Возвращает&nbsp;список&nbsp;ключей&nbsp;без&nbsp;их&nbsp;значений.<br>
+&nbsp;<br>
+:return:&nbsp;Список&nbsp;кортежей&nbsp;(имя,&nbsp;алгоритм,&nbsp;дата,&nbsp;отпечаток).</span></dd></dl>
+
+<dl><dt><a name="KeyStorage-open"><strong>open</strong></a>(self, password)</dt><dd><span class="code">Открывает&nbsp;хранилище&nbsp;(загружает&nbsp;файл,&nbsp;если&nbsp;он&nbsp;есть).<br>
+&nbsp;<br>
+:param&nbsp;password:&nbsp;Мастер-пароль.<br>
+:raises&nbsp;ValueError:&nbsp;Если&nbsp;пароль&nbsp;слишком&nbsp;короткий.<br>
+:raises&nbsp;<a href="#StorageError">StorageError</a>:&nbsp;Если&nbsp;пароль&nbsp;неверный&nbsp;или&nbsp;файл&nbsp;повреждён.</span></dd></dl>
+
+<dl><dt><a name="KeyStorage-save"><strong>save</strong></a>(self)</dt><dd><span class="code">Шифрует&nbsp;и&nbsp;сохраняет&nbsp;хранилище&nbsp;в&nbsp;файл.<br>
+&nbsp;<br>
+:raises&nbsp;<a href="#StorageError">StorageError</a>:&nbsp;Если&nbsp;запись&nbsp;не&nbsp;удалась.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="StorageError">class <strong>StorageError</strong></a>(<a href="builtins.html#Exception">builtins.Exception</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Ошибка&nbsp;хранилища&nbsp;(сообщение&nbsp;безопасно&nbsp;показывать).<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="keymanager.storage.html#StorageError">StorageError</a></dd>
+<dd><a href="builtins.html#Exception">builtins.Exception</a></dd>
+<dd><a href="builtins.html#BaseException">builtins.BaseException</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Methods inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><a name="StorageError-__init__"><strong>__init__</strong></a>(self, /, *args, **kwargs)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<hr>
+Static methods inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><a name="StorageError-__new__"><strong>__new__</strong></a>(*args, **kwargs)<span class="grey"><span class="heading-text"> class method of <a href="builtins.html#Exception">builtins.Exception</a></span></span></dt><dd><span class="code">Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;<a href="builtins.html#object">object</a>.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><a name="StorageError-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><span class="code">Return&nbsp;getattr(self,&nbsp;name).</span></dd></dl>
+
+<dl><dt><a name="StorageError-__reduce__"><strong>__reduce__</strong></a>(self, /)</dt><dd><span class="code">Helper&nbsp;for&nbsp;pickle.</span></dd></dl>
+
+<dl><dt><a name="StorageError-__repr__"><strong>__repr__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;repr(self).</span></dd></dl>
+
+<dl><dt><a name="StorageError-__setstate__"><strong>__setstate__</strong></a>(self, object, /)</dt></dl>
+
+<dl><dt><a name="StorageError-__str__"><strong>__str__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;str(self).</span></dd></dl>
+
+<dl><dt><a name="StorageError-add_note"><strong>add_note</strong></a>(self, object, /)</dt><dd><span class="code"><a href="builtins.html#Exception">Exception</a>.<a href="#StorageError-add_note">add_note</a>(note)&nbsp;--<br>
+add&nbsp;a&nbsp;note&nbsp;to&nbsp;the&nbsp;exception</span></dd></dl>
+
+<dl><dt><a name="StorageError-with_traceback"><strong>with_traceback</strong></a>(self, object, /)</dt><dd><span class="code"><a href="builtins.html#Exception">Exception</a>.<a href="#StorageError-with_traceback">with_traceback</a>(tb)&nbsp;--<br>
+set&nbsp;self.<strong>__traceback__</strong>&nbsp;to&nbsp;tb&nbsp;and&nbsp;return&nbsp;self.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><strong>__cause__</strong></dt>
+<dd><span class="code">exception&nbsp;cause</span></dd>
+</dl>
+<dl><dt><strong>__context__</strong></dt>
+<dd><span class="code">exception&nbsp;context</span></dd>
+</dl>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>__suppress_context__</strong></dt>
+</dl>
+<dl><dt><strong>__traceback__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-main"><strong>main</strong></a>()</dt><dd><span class="code">Запускает&nbsp;программу.<br>
+&nbsp;<br>
+Пути&nbsp;к&nbsp;хранилищу&nbsp;и&nbsp;папке&nbsp;экспорта&nbsp;можно&nbsp;задать&nbsp;переменными<br>
+окружения&nbsp;KEYMANAGER_STORAGE&nbsp;и&nbsp;KEYMANAGER_EXPORT_DIR.<br>
+&nbsp;<br>
+:return:&nbsp;Код&nbsp;завершения&nbsp;(0&nbsp;-&nbsp;успешно).</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>__all__</strong> = ['Key', 'KeyGenerator', 'KeyStorage', 'StorageError', 'KeyExporter', 'ExportError', 'ConsoleUI', 'main']</td></tr></table>
+</body></html>

@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "keymanager"
+version = "1.0.0"
+description = "Генератор и менеджер ключей шифрования"
+authors = [{ name = "Мостовой А.О." }]
+requires-python = ">=3.10"
+dependencies = ["cryptography>=44.0.1"]
+
+[project.scripts]
+keymanager = "keymanager.cli:main"
+
+[tool.setuptools]
+packages = ["keymanager"]
