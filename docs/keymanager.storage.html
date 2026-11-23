@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module keymanager.storage</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="keymanager.html" class="white">keymanager</a>.storage</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="../keymanager/storage.py">keymanager/storage.py</a></td></tr></table>
+    <p><span class="code">Модуль&nbsp;зашифрованного&nbsp;хранилища&nbsp;ключей.<br>
+&nbsp;<br>
+Содержимое&nbsp;хранилища&nbsp;сериализуется&nbsp;в&nbsp;JSON&nbsp;(а&nbsp;не&nbsp;pickle)&nbsp;и<br>
+шифруется&nbsp;паролем&nbsp;с&nbsp;помощью&nbsp;модуля&nbsp;crypto_utils&nbsp;(AES-256-GCM).</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="base64.html">base64</a><br>
+<a href="keymanager.crypto_utils.html">keymanager.crypto_utils</a><br>
+</td><td class="multicolumn"><a href="json.html">json</a><br>
+<a href="logging.html">logging</a><br>
+</td><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#Exception">builtins.Exception</a>(<a href="builtins.html#BaseException">builtins.BaseException</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="keymanager.storage.html#StorageError">StorageError</a>
+</dt></dl>
+</dd>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="keymanager.storage.html#KeyStorage">KeyStorage</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="KeyStorage">class <strong>KeyStorage</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#KeyStorage">KeyStorage</a>(filename)<br>
+&nbsp;<br>
+Хранилище&nbsp;ключей,&nbsp;защищённое&nbsp;мастер-паролем.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="KeyStorage-__init__"><strong>__init__</strong></a>(self, filename)</dt><dd><span class="code">Создаёт&nbsp;хранилище.<br>
+&nbsp;<br>
+:param&nbsp;filename:&nbsp;Путь&nbsp;к&nbsp;файлу&nbsp;хранилища.</span></dd></dl>
+
+<dl><dt><a name="KeyStorage-add_key"><strong>add_key</strong></a>(self, key)</dt><dd><span class="code">Добавляет&nbsp;ключ.<br>
+&nbsp;<br>
+:param&nbsp;key:&nbsp;Объект&nbsp;Key.<br>
+:raises&nbsp;<a href="#StorageError">StorageError</a>:&nbsp;Если&nbsp;хранилище&nbsp;не&nbsp;открыто<br>
+&nbsp;&nbsp;&nbsp;&nbsp;или&nbsp;ключ&nbsp;с&nbsp;таким&nbsp;именем&nbsp;уже&nbsp;есть.</span></dd></dl>
+
+<dl><dt><a name="KeyStorage-close"><strong>close</strong></a>(self)</dt><dd><span class="code">Закрывает&nbsp;хранилище&nbsp;и&nbsp;удаляет&nbsp;ключи&nbsp;из&nbsp;памяти.</span></dd></dl>
+
+<dl><dt><a name="KeyStorage-delete_key"><strong>delete_key</strong></a>(self, name)</dt><dd><span class="code">Удаляет&nbsp;ключ&nbsp;по&nbsp;имени.<br>
+&nbsp;<br>
+:param&nbsp;name:&nbsp;Имя&nbsp;ключа.<br>
+:raises&nbsp;<a href="#StorageError">StorageError</a>:&nbsp;Если&nbsp;ключ&nbsp;не&nbsp;найден.</span></dd></dl>
+
+<dl><dt><a name="KeyStorage-get_key"><strong>get_key</strong></a>(self, name)</dt><dd><span class="code">Возвращает&nbsp;ключ&nbsp;по&nbsp;имени.<br>
+&nbsp;<br>
+:param&nbsp;name:&nbsp;Имя&nbsp;ключа.<br>
+:return:&nbsp;Объект&nbsp;Key.<br>
+:raises&nbsp;<a href="#StorageError">StorageError</a>:&nbsp;Если&nbsp;ключ&nbsp;не&nbsp;найден.</span></dd></dl>
+
+<dl><dt><a name="KeyStorage-list_keys"><strong>list_keys</strong></a>(self)</dt><dd><span class="code">Возвращает&nbsp;список&nbsp;ключей&nbsp;без&nbsp;их&nbsp;значений.<br>
+&nbsp;<br>
+:return:&nbsp;Список&nbsp;кортежей&nbsp;(имя,&nbsp;алгоритм,&nbsp;дата,&nbsp;отпечаток).</span></dd></dl>
+
+<dl><dt><a name="KeyStorage-open"><strong>open</strong></a>(self, password)</dt><dd><span class="code">Открывает&nbsp;хранилище&nbsp;(загружает&nbsp;файл,&nbsp;если&nbsp;он&nbsp;есть).<br>
+&nbsp;<br>
+:param&nbsp;password:&nbsp;Мастер-пароль.<br>
+:raises&nbsp;ValueError:&nbsp;Если&nbsp;пароль&nbsp;слишком&nbsp;короткий.<br>
+:raises&nbsp;<a href="#StorageError">StorageError</a>:&nbsp;Если&nbsp;пароль&nbsp;неверный&nbsp;или&nbsp;файл&nbsp;повреждён.</span></dd></dl>
+
+<dl><dt><a name="KeyStorage-save"><strong>save</strong></a>(self)</dt><dd><span class="code">Шифрует&nbsp;и&nbsp;сохраняет&nbsp;хранилище&nbsp;в&nbsp;файл.<br>
+&nbsp;<br>
+:raises&nbsp;<a href="#StorageError">StorageError</a>:&nbsp;Если&nbsp;запись&nbsp;не&nbsp;удалась.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="StorageError">class <strong>StorageError</strong></a>(<a href="builtins.html#Exception">builtins.Exception</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Ошибка&nbsp;хранилища&nbsp;(сообщение&nbsp;безопасно&nbsp;показывать).<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="keymanager.storage.html#StorageError">StorageError</a></dd>
+<dd><a href="builtins.html#Exception">builtins.Exception</a></dd>
+<dd><a href="builtins.html#BaseException">builtins.BaseException</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Methods inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><a name="StorageError-__init__"><strong>__init__</strong></a>(self, /, *args, **kwargs)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<hr>
+Static methods inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><a name="StorageError-__new__"><strong>__new__</strong></a>(*args, **kwargs)<span class="grey"><span class="heading-text"> class method of <a href="builtins.html#Exception">builtins.Exception</a></span></span></dt><dd><span class="code">Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;<a href="builtins.html#object">object</a>.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><a name="StorageError-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><span class="code">Return&nbsp;getattr(self,&nbsp;name).</span></dd></dl>
+
+<dl><dt><a name="StorageError-__reduce__"><strong>__reduce__</strong></a>(self, /)</dt><dd><span class="code">Helper&nbsp;for&nbsp;pickle.</span></dd></dl>
+
+<dl><dt><a name="StorageError-__repr__"><strong>__repr__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;repr(self).</span></dd></dl>
+
+<dl><dt><a name="StorageError-__setstate__"><strong>__setstate__</strong></a>(self, object, /)</dt></dl>
+
+<dl><dt><a name="StorageError-__str__"><strong>__str__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;str(self).</span></dd></dl>
+
+<dl><dt><a name="StorageError-add_note"><strong>add_note</strong></a>(self, object, /)</dt><dd><span class="code"><a href="builtins.html#Exception">Exception</a>.<a href="#StorageError-add_note">add_note</a>(note)&nbsp;--<br>
+add&nbsp;a&nbsp;note&nbsp;to&nbsp;the&nbsp;exception</span></dd></dl>
+
+<dl><dt><a name="StorageError-with_traceback"><strong>with_traceback</strong></a>(self, object, /)</dt><dd><span class="code"><a href="builtins.html#Exception">Exception</a>.<a href="#StorageError-with_traceback">with_traceback</a>(tb)&nbsp;--<br>
+set&nbsp;self.<strong>__traceback__</strong>&nbsp;to&nbsp;tb&nbsp;and&nbsp;return&nbsp;self.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><strong>__cause__</strong></dt>
+<dd><span class="code">exception&nbsp;cause</span></dd>
+</dl>
+<dl><dt><strong>__context__</strong></dt>
+<dd><span class="code">exception&nbsp;context</span></dd>
+</dl>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>__suppress_context__</strong></dt>
+</dl>
+<dl><dt><strong>__traceback__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>logger</strong> = &lt;Logger keymanager.storage (WARNING)&gt;</td></tr></table>
+</body></html>

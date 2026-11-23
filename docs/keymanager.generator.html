@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module keymanager.generator</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="keymanager.html" class="white">keymanager</a>.generator</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="../keymanager/generator.py">keymanager/generator.py</a></td></tr></table>
+    <p><span class="code">Модуль&nbsp;генерации&nbsp;симметричных&nbsp;и&nbsp;асимметричных&nbsp;ключей.<br>
+&nbsp;<br>
+Используется&nbsp;криптографически&nbsp;стойкий&nbsp;генератор&nbsp;(secrets).</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="cryptography.hazmat.primitives.asymmetric.rsa.html">cryptography.hazmat.primitives.asymmetric.rsa</a><br>
+</td><td class="multicolumn"><a href="secrets.html">secrets</a><br>
+</td><td class="multicolumn"><a href="cryptography.hazmat.primitives.serialization.html">cryptography.hazmat.primitives.serialization</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="keymanager.generator.html#KeyGenerator">KeyGenerator</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="KeyGenerator">class <strong>KeyGenerator</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Создание&nbsp;ключей&nbsp;AES&nbsp;и&nbsp;RSA.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="KeyGenerator-generate_aes"><strong>generate_aes</strong></a>(self, name, bits=256)</dt><dd><span class="code">Создаёт&nbsp;симметричный&nbsp;ключ&nbsp;AES.<br>
+&nbsp;<br>
+:param&nbsp;name:&nbsp;Имя&nbsp;ключа.<br>
+:param&nbsp;bits:&nbsp;Длина&nbsp;ключа:&nbsp;128&nbsp;или&nbsp;256&nbsp;бит.<br>
+:return:&nbsp;Объект&nbsp;Key.<br>
+:raises&nbsp;TypeError:&nbsp;Если&nbsp;параметры&nbsp;неверного&nbsp;типа.<br>
+:raises&nbsp;ValueError:&nbsp;Если&nbsp;имя&nbsp;или&nbsp;длина&nbsp;недопустимы.</span></dd></dl>
+
+<dl><dt><a name="KeyGenerator-generate_rsa"><strong>generate_rsa</strong></a>(self, name, bits=2048)</dt><dd><span class="code">Создаёт&nbsp;закрытый&nbsp;ключ&nbsp;RSA&nbsp;(открытый&nbsp;вычисляется&nbsp;из&nbsp;него).<br>
+&nbsp;<br>
+:param&nbsp;name:&nbsp;Имя&nbsp;ключа.<br>
+:param&nbsp;bits:&nbsp;Длина&nbsp;ключа:&nbsp;2048,&nbsp;3072&nbsp;или&nbsp;4096&nbsp;бит.<br>
+:return:&nbsp;Объект&nbsp;Key,&nbsp;value&nbsp;содержит&nbsp;закрытый&nbsp;ключ&nbsp;в&nbsp;PEM.<br>
+:raises&nbsp;TypeError:&nbsp;Если&nbsp;параметры&nbsp;неверного&nbsp;типа.<br>
+:raises&nbsp;ValueError:&nbsp;Если&nbsp;имя&nbsp;или&nbsp;длина&nbsp;недопустимы.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>AES_SIZES</strong> = (128, 256)</dl>
+
+<dl><dt><strong>RSA_SIZES</strong> = (2048, 3072, 4096)</dl>
+
+</td></tr></table></td></tr></table>
+</body></html>
