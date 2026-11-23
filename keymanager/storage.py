@@ -8,9 +8,9 @@ import json
 import logging
 import os
 
-from src import crypto_utils
-from src.key import Key
-from src.validators import validate_name, validate_password
+from keymanager import crypto_utils
+from keymanager.key import Key
+from keymanager.validators import validate_name, validate_password
 
 logger = logging.getLogger(__name__)
 

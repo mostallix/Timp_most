@@ -10,9 +10,9 @@ from pathlib import Path
 
 from cryptography.hazmat.primitives import serialization
 
-from src import crypto_utils
-from src.key import Key
-from src.validators import (validate_filename, validate_name,
+from keymanager import crypto_utils
+from keymanager.key import Key
+from keymanager.validators import (validate_filename, validate_name,
                             validate_password)
 
 logger = logging.getLogger(__name__)

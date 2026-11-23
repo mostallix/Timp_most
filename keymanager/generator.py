@@ -7,8 +7,8 @@ import secrets
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric import rsa
 
-from src.key import Key
-from src.validators import validate_bits, validate_name
+from keymanager.key import Key
+from keymanager.validators import validate_bits, validate_name
 
 
 class KeyGenerator:

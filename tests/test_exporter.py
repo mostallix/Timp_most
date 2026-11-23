@@ -1,6 +1,6 @@
 import pytest
-from src.exporter import ExportError, KeyExporter
-from src.generator import KeyGenerator
+from keymanager.exporter import ExportError, KeyExporter
+from keymanager.generator import KeyGenerator
 
 PASSWORD = "export_password"
 

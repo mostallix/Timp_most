@@ -1,5 +1,5 @@
 import pytest
-from src.validators import (validate_bits, validate_name,
+from keymanager.validators import (validate_bits, validate_name,
                             validate_password)
 
 

@@ -1,8 +1,8 @@
 from unittest import mock
 
 import pytest
-from src.generator import KeyGenerator
-from src.storage import KeyStorage, StorageError
+from keymanager.generator import KeyGenerator
+from keymanager.storage import KeyStorage, StorageError
 
 PASSWORD = "test_password"
 
@@ -56,7 +56,7 @@ def test_save_error_hides_path(tmp_path):
     # заглушка: имитируем ошибку диска
     s = KeyStorage(str(tmp_path / "k.dat"))
     s.open(PASSWORD)
-    with mock.patch("src.storage.os.replace",
+    with mock.patch("keymanager.storage.os.replace",
                     side_effect=OSError("disk full")):
         with pytest.raises(StorageError) as exc:
             s.save()

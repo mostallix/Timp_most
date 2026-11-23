@@ -1,5 +1,5 @@
 import pytest
-from src.generator import KeyGenerator
+from keymanager.generator import KeyGenerator
 
 
 def test_aes_256():
